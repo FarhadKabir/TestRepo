@@ -14,9 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
+    - name: Install composer and add dependencies
       uses: php-actions/composer@v4
     - run: sudo composer require --dev prestashop/php-dev-tools
+    - run: sudo composer global require phpstan/phpstan:^0.12
+    - name: Run tools
+    - run: php vendor/bin/prestashop-coding-standards cs-fixer:init
+    - run: php vendor/bin/prestashop-coding-standards phpstan:init
 
 
 
