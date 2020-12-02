@@ -12,16 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: mkdir TestRepo
-    - run: cd TestRepo
-    - uses: actions/checkout@v2
-    - run: cd ../
     - name: Install composer and add dependencies
       uses: php-actions/composer@v4
     - run: sudo composer require --dev prestashop/php-dev-tools
     - run: sudo composer global require phpstan/phpstan:^0.12
-    - run: php vendor/bin/prestashop-coding-standards cs-fixer:init
-    - run: php vendor/bin/prestashop-coding-standards phpstan:init
+    - uses: actions/checkout@v2
+    - run: php vendor/bin/prestashop-coding-standards cs-fixer:init --dest TestRepo
+    - run: php vendor/bin/prestashop-coding-standards phpstan:init --dest TestRepo
 
 
 
