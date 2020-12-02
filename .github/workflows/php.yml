@@ -2,7 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,10 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Composer (php-actions)
+    - name: Validate composer.json and composer.lock
       uses: php-actions/composer@v4
-    - run: composer require --dev prestashop/php-dev-tools
-    - run: composer global require phpstan/phpstan:^0.12
 
 
 
