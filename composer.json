@@ -1,0 +1,10 @@
+{
+    "name": "macbookpro/test-repo",
+    "authors": [
+        {
+            "name": "Farhad Kabir",
+            "email": "fk@embrace-it.com"
+        }
+    ],
+    "require": {}
+}
