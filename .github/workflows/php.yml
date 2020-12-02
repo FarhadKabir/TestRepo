@@ -16,6 +16,7 @@ jobs:
 
     - name: Validate composer.json and composer.lock
       uses: php-actions/composer@v4
+    - run: composer require --dev prestashop/php-dev-tools
 
 
 
