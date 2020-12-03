@@ -21,7 +21,7 @@ jobs:
     - run: sudo composer global require phpstan/phpstan:^0.12
     - run: sudo cp vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon vendor/prestashop/php-dev-tools/phpstan/extension.neon
     - run: sudo echo '  excludes_analyse:' >> vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon
-    - run: sudo echo '    - %currentWorkingDirectory%/vendor' >> vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon
+    - run: sudo echo '    - %currentWorkingDirectory%/vendor/*' >> vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon
     - run: _PS_ROOT_DIR_=./ php ~/.composer/vendor/bin/phpstan.phar --configuration=vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon analyse ./
     
 
