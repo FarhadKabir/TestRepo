@@ -19,7 +19,7 @@ jobs:
     
     - run: sudo composer require --dev prestashop/php-dev-tools
     - run: sudo composer global require phpstan/phpstan:^0.12
-    - run: cp vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon vendor/prestashop/php-dev-tools/phpstan/extension.neon
+    - run: sudo cp vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon vendor/prestashop/php-dev-tools/phpstan/extension.neon
     - run: _PS_ROOT_DIR_=./ php ~/.composer/vendor/bin/phpstan.phar --configuration=vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon analyse ./
     
 
