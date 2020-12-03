@@ -14,9 +14,10 @@ jobs:
     steps:
     - name: Install composer and add dependencies
       uses: php-actions/composer@v4
+    - name: Pull repo
+      uses: actions/checkout@v2
     - run: sudo composer require --dev prestashop/php-dev-tools
     - run: sudo composer global require phpstan/phpstan:^0.12
-    - uses: actions/checkout@v2
     - run: _PS_ROOT_DIR_=./ php ~/.composer/vendor/bin/phpstan.phar --configuration=vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon analyse ./
     
 
