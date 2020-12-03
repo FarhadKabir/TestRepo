@@ -19,6 +19,15 @@ jobs:
     #- uses: actions/checkout@v2
     #- run: php vendor/bin/prestashop-coding-standards cs-fixer:init --dest TestRepo
     #- run: php vendor/bin/prestashop-coding-standards phpstan:init --dest TestRepo
+      
+  php-cs-fixer:
+    name: PHP-CS-Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Run PHP-CS-Fixer
+        uses: prestashopcorp/github-action-php-cs-fixer@master
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
