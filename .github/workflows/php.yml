@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  php-stan:
 
     runs-on: ubuntu-latest
 
@@ -32,11 +32,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.0.0
       - name: Run PHP-CS-Fixer
-        uses: prestashopcorp/github-action-php-cs-fixer@master
-    
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+        uses: php-actions/composer@v4
+      - run: sudo composer require --dev prestashop/php-dev-tools  
+      - run: composer global require phpstan/phpstan:^0.12
+      - run: sudo cp vendor/prestashop/php-dev-tools/templates/cs-fixer/php_cs.dist .php_cs.dist
+      - run: sudo cp vendor/prestashop/php-dev-tools/templates/cs-fixer/prettyci.composer.json .prettyci.composer.json
+      - run: php vendor/bin/php-cs-fixer fix
+        
