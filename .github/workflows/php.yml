@@ -25,6 +25,14 @@ jobs:
     - run: sudo echo '  excludes_analyse:' >> phpstan.neon
     - run: sudo echo '    - %currentWorkingDirectory%/vendor/*' >> phpstan.neon
     - run: _PS_ROOT_DIR_=./ php ~/.composer/vendor/bin/phpstan.phar --configuration=phpstan.neon analyse ./
+  php-cs-fixer:
+    name: PHP-CS-Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Run PHP-CS-Fixer
+        uses: prestashopcorp/github-action-php-cs-fixer@master
     
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
