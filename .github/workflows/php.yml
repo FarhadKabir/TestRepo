@@ -1,22 +1,17 @@
 name: PHP Composer
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
   php-stan:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Pull repo
       uses: actions/checkout@v2
     - name: Install composer and add dependencies
-      uses: php-actions/composer@v4
-    
+      uses: php-actions/composer@v4 
     - run: sudo composer require --dev prestashop/php-dev-tools
     - run: sudo composer global require phpstan/phpstan:^0.12
     - run: sudo cp vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon vendor/prestashop/php-dev-tools/phpstan/extension.neon
@@ -25,6 +20,7 @@ jobs:
     - run: sudo echo '  excludes_analyse:' >> phpstan.neon
     - run: sudo echo '    - %currentWorkingDirectory%/vendor/*' >> phpstan.neon
     - run: _PS_ROOT_DIR_=./ php ~/.composer/vendor/bin/phpstan.phar --configuration=phpstan.neon analyse ./
+  
   php-cs-fixer:
     name: PHP-CS-Fixer
     runs-on: ubuntu-latest
