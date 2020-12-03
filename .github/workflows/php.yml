@@ -7,19 +7,42 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  #build:
 
+    #runs-on: ubuntu-latest
+
+    #steps:
+    #- name: Install composer and add dependencies
+    #  uses: php-actions/composer@v4
+    #- run: sudo composer require --dev prestashop/php-dev-tools
+    #- run: sudo composer global require phpstan/phpstan:^0.12
+    #- uses: actions/checkout@v2
+    #- run: php vendor/bin/prestashop-coding-standards cs-fixer:init --dest TestRepo
+    #- run: php vendor/bin/prestashop-coding-standards phpstan:init --dest TestRepo
+  phpstan:
+    name: PHPStan
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        presta-versions: ['1.7.0.3', 'latest']
     steps:
-    - name: Install composer and add dependencies
-      uses: php-actions/composer@v4
-    - run: sudo composer require --dev prestashop/php-dev-tools
-    - run: sudo composer global require phpstan/phpstan:^0.12
-    - uses: actions/checkout@v2
-    - run: php vendor/bin/prestashop-coding-standards cs-fixer:init --dest TestRepo
-    - run: php vendor/bin/prestashop-coding-standards phpstan:init --dest TestRepo
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      # Add vendor folder in cache to make next builds faster
+      - name: Cache vendor folder
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: php-${{ hashFiles('composer.lock') }}
 
+      # Add composer local folder in cache to make next builds faster
+      - name: Cache composer folder
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache
+          key: php-composer-cache
+
+      - run: composer install
 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
