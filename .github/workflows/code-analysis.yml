@@ -12,7 +12,6 @@ jobs:
     steps:
     - name: Pull repo
       uses: actions/checkout@v2
-    - name: Install composer and add dependencies
     - run: composer install 
     - run: sudo cp vendor/prestashop/php-dev-tools/phpstan/ps-module-extension.neon vendor/prestashop/php-dev-tools/phpstan/extension.neon
     - run: sudo cp vendor/prestashop/php-dev-tools/templates/phpstan/phpstan.neon phpstan.neon
@@ -27,7 +26,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
-      - name: Run PHP-CS-Fixer
       - run: composer install 
       - run: sudo cp vendor/prestashop/php-dev-tools/templates/cs-fixer/php_cs.dist .php_cs.dist
       - run: sudo cp vendor/prestashop/php-dev-tools/templates/cs-fixer/prettyci.composer.json .prettyci.composer.json
