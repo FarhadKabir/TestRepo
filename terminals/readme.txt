@@ -1,0 +1,1 @@
+The content in this folder is created automatically from the template paymentClass.tpl
