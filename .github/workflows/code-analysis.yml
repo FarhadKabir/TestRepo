@@ -1,17 +1,25 @@
-name: PHP Code Analysis
+name: PHP Compose
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
+    branches: [ main ]
+  pull_request:
     branches: [ main ]
 
 jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-    - name: Pull repo
+    - name: Install packages and run PHP Stan
       uses: actions/checkout@v2
     - run: composer install
-    - run: vendor/bin/phpstan analyze
+    - run: _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
   
+  php-cs-fixer:
+    name: PHP-CS-Fixer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install packages and run PHP CS Fixer
+        uses: actions/checkout@v2.0.0
+      - run: composer install
+      - run: php vendor/bin/php-cs-fixer fix
