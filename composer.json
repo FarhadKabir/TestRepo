@@ -1,10 +1,13 @@
 {
-    "name": "altapay/plugin-prestashop",
-    "description": "Altapay: Payments less complicated",
+    "name": "macbookpro/test-repo",
+    "authors": [
+        {
+            "name": "Farhad Kabir",
+            "email": "fk@embrace-it.com"
+        }
+    ],
     "require-dev": {
         "szepeviktor/phpstan-wordpress": "^0.7.1",
         "phpstan/extension-installer": "^1.0"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
