@@ -13,14 +13,5 @@ jobs:
     - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
-    - run: sudo rm phpstan.neon.dist 
-    - run: sudo touch phpstan.neon.dist 
-    - run: sudo chown -R $USER:$USER phpstan.neon.dist
-    - run: sudo echo 'parameters:' >> phpstan.neon.dist
-    - run: "sudo echo '    level: max' >> phpstan.neon.dist"
-    - run: sudo echo '    paths:' >> phpstan.neon.dist
-    - run: sudo echo '        - %currentWorkingDirectory%/' >> phpstan.neon.dist
-    - run: sudo echo '    excludes_analyse:' >> phpstan.neon.dist
-    - run: sudo echo '        - %currentWorkingDirectory%/vendor/*' >> phpstan.neon.dist
     - run: vendor/bin/phpstan analyze
   
