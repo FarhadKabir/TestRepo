@@ -17,6 +17,7 @@ jobs:
     - run: sudo touch phpstan.neon.dist 
     - run: sudo chown -R $USER:$USER phpstan.neon.dist
     - run: sudo echo 'parameters:' >> phpstan.neon.dist
+    - run: sudo echo '    level:!!seq max' >> phpstan.neon.dist
     - run: sudo echo '    paths:' >> phpstan.neon.dist
     - run: sudo echo '        - %currentWorkingDirectory%/' >> phpstan.neon.dist
     - run: sudo echo '    excludes_analyse:' >> phpstan.neon.dist
