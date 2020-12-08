@@ -1,6 +1,0 @@
-parameters:
-    paths:
-        - %currentWorkingDirectory%/
-    excludes_analyse:
-        - %currentWorkingDirectory%/vendor/
-    level: max
