@@ -1,4 +1,4 @@
-name: PHP Composer
+name: PHP Compose
 
 on:
   pull_request:
