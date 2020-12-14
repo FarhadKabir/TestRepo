@@ -8,19 +8,24 @@ spl_autoload_register('autoLoader');
  */
 function autoLoader($class, $dir = null)
 {
-    require_once __DIR__ . DIRECTORY_SEPARATOR . "IAltapayCommunicationLogger.class.php";
-    if (false === strpos($class, 'Altapay')) {
+    $namespace = 'Altapay';
+    require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . "IAltapayCommunicationLogger.class.php");
+
+    if (0 !== strpos($class, $namespace)) {
         return;
     }
 
     if (is_null($dir)) {
-        $dir = __DIR__;
+        $dir = dirname(__FILE__);
     }
+    //Load the Altapay SDK version
+    //TODO: refactor this
+    include_once $dir . DIRECTORY_SEPARATOR . "ALTAPAY_VERSION.php";
 
     $listDir = scandir(realpath($dir));
     if (isset($listDir) && !empty($listDir)) {
         foreach ($listDir as $listDirkey => $subDir) {
-            if ($subDir === '.' || $subDir === '..') {
+            if ($subDir == '.' || $subDir == '..') {
                 continue;
             }
             $file = $dir . DIRECTORY_SEPARATOR . $subDir . DIRECTORY_SEPARATOR . $class . '.class.php';

@@ -1,25 +1,20 @@
-name: PHP Compose
+name: PHP Code Analysis
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
+    branches: [ main ]
+  push:
     branches: [ main ]
 
 jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-    - name: Install packages and run PHP Stan
+    - curl -O https://wordpress.org/latest.tar.gz
+    - tar xzvf latest.tar.gz
+    - curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
+    - unzip woocommerce.latest-stable.zip
+    - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
-    - run: _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
-  
-  php-cs-fixer:
-    name: PHP-CS-Fixer
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install packages and run PHP CS Fixer
-        uses: actions/checkout@v2.0.0
-      - run: composer install
-      - run: php vendor/bin/php-cs-fixer fix
+    - run: vendor/bin/phpstan analyze

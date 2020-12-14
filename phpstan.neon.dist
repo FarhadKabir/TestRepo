@@ -1,0 +1,16 @@
+parameters:
+    paths:
+        - %currentWorkingDirectory%/
+    excludes_analyse:
+        - %currentWorkingDirectory%/vendor/
+        - %currentWorkingDirectory%/assets/
+    scanDirectories:
+        - ../woocommerce/
+        - ../wordpress/wp-includes/
+        - ../wordpress/wp-admin/
+#        - ../woocommerce-subscriptions
+#        - ../wordpress-develop-tests
+    level: 0
+    checkMissingIterableValueType: false
+    ignoreErrors:
+        - "#Inner named functions are not supported by PHPStan#"
