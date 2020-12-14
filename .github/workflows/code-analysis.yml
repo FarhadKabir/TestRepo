@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Pull repo
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - run: composer install
     - run: cd ..
     - run: curl -O https://wordpress.org/latest.tar.gz
