@@ -14,7 +14,7 @@ jobs:
     - run: tar xzvf latest.tar.gz
     - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
     - run: unzip woocommerce.latest-stable.zip
-    - name: Pull repo
-      uses: actions/checkout@v2
+    #- name: Pull repo
+    - uses: actions/checkout@v2
     - run: composer install
     - run: vendor/bin/phpstan analyze
