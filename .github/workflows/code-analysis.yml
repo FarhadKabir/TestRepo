@@ -10,6 +10,8 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
+    - run: mkdir TestDir
+    - run: cd TestDir
     - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
