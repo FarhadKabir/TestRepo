@@ -14,3 +14,5 @@ parameters:
     checkMissingIterableValueType: false
     ignoreErrors:
         - "#Inner named functions are not supported by PHPStan#"
+        - "#Function wcs_order_contains_renewal not found.#"
+        - "#unknown class WC_Subscriptions_Renewal_Order#"
