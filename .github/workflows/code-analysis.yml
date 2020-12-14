@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: mkdir TestDir
-    - working-directory: TestDir
+      working-directory: TestDir
     - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
