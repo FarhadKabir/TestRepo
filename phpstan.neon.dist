@@ -5,7 +5,7 @@ parameters:
         - %currentWorkingDirectory%/vendor/
         - %currentWorkingDirectory%/assets/
     scanDirectories:
-        - ../../woocommerce/
+#        - ../../woocommerce/
         - ../../wordpress/wp-includes/
         - ../../wordpress/wp-admin/
 #        - ../woocommerce-subscriptions
