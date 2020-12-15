@@ -10,21 +10,26 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-    - run: curl -O https://wordpress.org/latest.tar.gz
-    - run: tar xzvf latest.tar.gz 
-    - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
-    - run: unzip woocommerce.latest-stable.zip 
-    - run: pwd
-    - run: ls -al
-    - run: mkdir ./plugin-wordpress
-    - run: cd ./plugin-wordpress
-    - run: pwd
-    - run: ls -al
-    - name: Pull repo
-      uses: actions/checkout@v2
-    - run: composer install
-    - name: test
-      run: ls -al 
-      working-directory: ./vendor
+     - name: test
+       run: |
+         pwd
+         ls -al
+       working-directory: /home/runner/work/TestRepo
+   # - run: curl -O https://wordpress.org/latest.tar.gz
+   # - run: tar xzvf latest.tar.gz 
+   # - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
+   # - run: unzip woocommerce.latest-stable.zip 
+   # - run: pwd
+   # - run: ls -al
+   # - run: mkdir ./plugin-wordpress
+   # - run: cd ./plugin-wordpress
+   # - run: pwd
+   # - run: ls -al
+   # - name: Pull repo
+   #   uses: actions/checkout@v2
+   # - run: composer install
+   # - name: test
+   #   run: ls -al 
+   #   working-directory: ./vendor
 
 #    - run: vendor/bin/phpstan analyze
