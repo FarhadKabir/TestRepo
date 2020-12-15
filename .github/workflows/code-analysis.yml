@@ -18,6 +18,10 @@ jobs:
     - run: unzip woocommerce.latest-stable.zip 
     - run: pwd
     - run: ls -al
+    - run: mkdir plugin-wordpress
+    - run: cd plugin-wordpress
+    - run: pwd
+    - run: ls -al
     - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
