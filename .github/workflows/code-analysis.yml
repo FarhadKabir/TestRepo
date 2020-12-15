@@ -20,7 +20,7 @@ jobs:
      - name: install composer and run PhpStan
        uses: actions/checkout@v2
      - working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
-     - run: |
+       run: |
          composer install
          vendor/bin/phpstan analyze
      #- name: Install wordpress and woocommerce
