@@ -1,4 +1,4 @@
-name: PHP Code Analysis
+name: PHP Code Analysis For Altapay Wordpress Plugin
 
 on:
   pull_request:
@@ -26,8 +26,7 @@ jobs:
          pwd
          ls -al
        working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
-     #- name: install composer and run PhpStan
-       #working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
+     
      - run: mkdir /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
@@ -38,12 +37,4 @@ jobs:
          composer install
          vendor/bin/phpstan analyze
        working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
-      #   composer install
-      #   vendor/bin/phpstan analyze
-     #- name: Install wordpress and woocommerce
-     #  working-directory: /home/runner/work/TestRepo
-     #  run: |
-     #    pwd
-      #   ls -al
-   
-#    - run: vendor/bin/phpstan analyze
+      
