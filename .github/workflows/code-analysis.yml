@@ -33,6 +33,11 @@ jobs:
        with: 
          path: '/home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
      - run: ls -al /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+     - name: Install composer and run PhpStan
+       run: |
+         composer install
+         vendor/bin/phpstan analyze
+       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
       #   composer install
       #   vendor/bin/phpstan analyze
      #- name: Install wordpress and woocommerce
