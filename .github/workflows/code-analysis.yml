@@ -20,27 +20,12 @@ jobs:
      - name: install composer and run PhpStan
        uses: actions/checkout@v2
      - run: |
-         pwd
-         ls -al
+         composer install
+         vendor/bin/phpstan analyze
      - name: Install wordpress and woocommerce
        working-directory: /home/runner/work/TestRepo
        run: |
          pwd
          ls -al
-   # - run: tar xzvf latest.tar.gz 
-   # - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
-   # - run: unzip woocommerce.latest-stable.zip 
-   # - run: pwd
-   # - run: ls -al
-   # - run: mkdir ./plugin-wordpress
-   # - run: cd ./plugin-wordpress
-   # - run: pwd
-   # - run: ls -al
-   # - name: Pull repo
-   #   uses: actions/checkout@v2
-   # - run: composer install
-   # - name: test
-   #   run: ls -al 
-   #   working-directory: ./vendor
-
+   
 #    - run: vendor/bin/phpstan analyze
