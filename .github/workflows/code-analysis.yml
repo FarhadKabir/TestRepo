@@ -10,16 +10,22 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - run: mkdir /home/runner/work/TestRepo/TestRepo/wooc
-     - name: Install wordpress and woocommerce
+     #- run: mkdir /home/runner/work/TestRepo/TestRepo/
+     - name: Install wordpress
        run: |
          curl -O https://wordpress.org/latest.tar.gz
          tar xzvf latest.tar.gz 
-         curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
-         unzip woocommerce.latest-stable.zip 
+         rm latest.tar.gz
          pwd
          ls -al
-       working-directory: /home/runner/work/TestRepo/TestRepo/wooc
+     - name: Install woocommerce
+       run: |
+         curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
+         unzip woocommerce.latest-stable.zip 
+         rm woocommerce.latest-stable.zip
+         pwd
+         ls -al
+       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
      #- name: install composer and run PhpStan
        #working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
      - uses: actions/checkout@v2 
