@@ -21,9 +21,12 @@ jobs:
        uses: actions/checkout@v2
      - run: |
          pwd
+         ls -al
      - name: Install wordpress and woocommerce
        working-directory: /home/runner/work/TestRepo
-       run: pwd
+       run: |
+         pwd
+         ls -al
    # - run: tar xzvf latest.tar.gz 
    # - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
    # - run: unzip woocommerce.latest-stable.zip 
