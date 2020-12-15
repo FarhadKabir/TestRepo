@@ -16,7 +16,6 @@ jobs:
          tar xzvf latest.tar.gz 
          curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
          unzip woocommerce.latest-stable.zip 
-         $GITHUB_WORKSPACE
        working-directory: /home/runner/work/TestRepo
      #- name: install composer and run PhpStan
        #working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
