@@ -12,8 +12,8 @@ jobs:
     steps:
     #- run: mkdir TestDir
     #  working-directory: TestDir
-    #- name: Pull repo
-    #  uses: actions/checkout@v2
+    - name: Pull repo
+      uses: actions/checkout@v2
     - run: composer install
     - run: cd ..
     - run: curl -O https://wordpress.org/latest.tar.gz
