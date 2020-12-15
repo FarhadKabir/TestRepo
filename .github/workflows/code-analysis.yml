@@ -10,7 +10,7 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - run: echo ${{ env.GITHUB_WORKSPACE }} /wordpress/wp-content/plugins
+     - run: echo /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
      #- run: echo "The selected color is ${{ GITHUB_WORKSPACE }}"
      - name: Install wordpress
        run: |
