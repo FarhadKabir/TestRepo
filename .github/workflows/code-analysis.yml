@@ -18,9 +18,9 @@ jobs:
          unzip woocommerce.latest-stable.zip 
        working-directory: /home/runner/work/TestRepo
      - name: install composer and run PhpStan
-       uses: actions/checkout@v2
      - working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
-       run: |
+     - uses: actions/checkout@v2 
+     - run: |
          composer install
          vendor/bin/phpstan analyze
      #- name: Install wordpress and woocommerce
