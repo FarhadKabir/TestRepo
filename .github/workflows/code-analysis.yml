@@ -21,8 +21,8 @@ jobs:
      #- name: install composer and run PhpStan
        #working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
      - uses: actions/checkout@v2 
-       with: 
-         path: '/home/runner/work/TestRepo/wordpress/wp-content/plugins'
+       #with: 
+       #  path: '/home/runner/work/TestRepo/wordpress/wp-content/plugins'
        #run: |
       #   composer install
       #   vendor/bin/phpstan analyze
