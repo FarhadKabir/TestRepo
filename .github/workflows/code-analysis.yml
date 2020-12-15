@@ -26,7 +26,7 @@ jobs:
          rm woocommerce.latest-stable.zip
          pwd
          ls -al
-       working-directory: $GITHUB_WORKSPACE
+       working-directory: ${{ env.GITHUB_WORKSPACE }}
      - run: mkdir $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
