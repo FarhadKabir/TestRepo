@@ -23,10 +23,8 @@ jobs:
     - name: Pull repo
       uses: actions/checkout@v2
     - run: composer install
-    - run: pwd
-    - run: ls -al
-    - run: cd vendor
-    - run: pwd
-    - run: ls -al
+    - name: test
+      run: ls -al 
+      working-directory: ./vendor
 
 #    - run: vendor/bin/phpstan analyze
