@@ -19,13 +19,14 @@ jobs:
        working-directory: /home/runner/work/TestRepo
      - name: install composer and run PhpStan
        uses: actions/checkout@v2
+     - working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
      - run: |
          composer install
          vendor/bin/phpstan analyze
-     - name: Install wordpress and woocommerce
-       working-directory: /home/runner/work/TestRepo
-       run: |
-         pwd
-         ls -al
+     #- name: Install wordpress and woocommerce
+     #  working-directory: /home/runner/work/TestRepo
+     #  run: |
+     #    pwd
+      #   ls -al
    
 #    - run: vendor/bin/phpstan analyze
