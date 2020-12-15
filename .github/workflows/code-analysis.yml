@@ -27,15 +27,15 @@ jobs:
          rm woocommerce.latest-stable.zip
          pwd
          ls -al
-       working-directory: ${{ env.GITHUB_WORKSPACE }}/wordpress/wp-content/plugins
-     - run: mkdir ${{ env.GITHUB_WORKSPACE }}/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+     - run: mkdir ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
-         path: '${{ env.GITHUB_WORKSPACE }}/wordpress/wp-content/plugins/plugin-wordpress'
-     - run: ls -al ${{ env.GITHUB_WORKSPACE }}/wordpress/wp-content/plugins
+         path: '~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
+     - run: ls -al ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
      - name: Install composer and run PhpStan
        run: |
          composer install
          vendor/bin/phpstan analyze
-       working-directory: ${{ env.GITHUB_WORKSPACE }}/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
       
