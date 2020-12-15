@@ -21,7 +21,7 @@ jobs:
        #working-directory: /home/runner/work/TestRepo/wordpress/wp-content/plugins
      - uses: actions/checkout@v2 
        with: 
-         path: '/home/runner/work/TestRepo/wordpress/wp-content/plugins'
+         path: '/home/runner/work/TestRepo/TestRepo/wordpress'
        #run: |
       #   composer install
       #   vendor/bin/phpstan analyze
