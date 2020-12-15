@@ -23,5 +23,8 @@ jobs:
     - run: composer install
     - run: pwd
     - run: ls -al
+    - run: cd vendor
+    - run: pwd
+    - run: ls -al
 
 #    - run: vendor/bin/phpstan analyze
