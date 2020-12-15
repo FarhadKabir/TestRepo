@@ -28,14 +28,14 @@ jobs:
          pwd
          ls -al
        working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
-     - run: mkdir ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+     - run: mkdir /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
-         path: '~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
-     - run: ls -al ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+         path: '/home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
+     - run: ls -al /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
      - name: Install composer and run PhpStan
        run: |
          composer install
          vendor/bin/phpstan analyze
-       working-directory: ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
       
