@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      #- run: echo ${{ env.GITHUB_WORKSPACE/wordpress/wp-content/plugins }}
-     - run: echo "The selected color is ${{ env.GITHUB_WORKSPACE }}"
+     - run: echo "The selected color is ${{ GITHUB_WORKSPACE }}"
      - name: Install wordpress
        run: |
          curl -O https://wordpress.org/latest.tar.gz
