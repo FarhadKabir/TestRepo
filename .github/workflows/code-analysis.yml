@@ -10,16 +10,14 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-    - run: mkdir TestDir
-      working-directory: /home/runner/work/TestRepo
     - run: curl -O https://wordpress.org/latest.tar.gz
     - run: tar xzvf latest.tar.gz 
     - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
     - run: unzip woocommerce.latest-stable.zip 
     - run: pwd
     - run: ls -al
-    - run: mkdir plugin-wordpress
-    - run: cd plugin-wordpress
+    - run: mkdir ./plugin-wordpress
+    - run: cd ./plugin-wordpress
     - run: pwd
     - run: ls -al
     - name: Pull repo
