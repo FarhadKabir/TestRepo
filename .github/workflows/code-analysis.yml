@@ -12,6 +12,7 @@ jobs:
     steps:
     #- run: mkdir TestDir
     #  working-directory: TestDir
+    - working-directory: /home/runner/work/TestRepo
     - run: curl -O https://wordpress.org/latest.tar.gz
     - run: tar xzvf latest.tar.gz 
     - run: curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
