@@ -10,7 +10,6 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     
      - name: Install wordpress
        run: |
          curl -O https://wordpress.org/latest.tar.gz
@@ -18,6 +17,7 @@ jobs:
          rm latest.tar.gz
          pwd
          ls -al
+         
      - name: Install woocommerce
        run: |
          curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
@@ -25,16 +25,15 @@ jobs:
          rm woocommerce.latest-stable.zip
          pwd
          ls -al
-       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
-     
-     - run: mkdir /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: wordpress/wp-content/plugins
+     - run: mkdir wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
-         path: '/home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
-     - run: ls -al /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+         path: wordpress/wp-content/plugins/plugin-wordpress
+     - run: ls -al wordpress/wp-content/plugins/plugin-wordpress
      - name: Install composer and run PhpStan
        run: |
          composer install
          vendor/bin/phpstan analyze
-       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: wordpress/wp-content/plugins/plugin-wordpress
       
