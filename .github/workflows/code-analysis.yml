@@ -28,7 +28,7 @@ jobs:
          pwd
          ls -al
        working-directory: wordpress/wp-content/plugins
-     - run: mkdir $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
+     - run: mkdir wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
          path: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
