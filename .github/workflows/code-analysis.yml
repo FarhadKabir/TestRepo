@@ -37,5 +37,5 @@ jobs:
        run: |
          composer install
          vendor/bin/phpstan analyze
-       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
       
