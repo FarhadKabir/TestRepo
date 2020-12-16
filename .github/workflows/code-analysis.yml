@@ -32,7 +32,7 @@ jobs:
      - uses: actions/checkout@v2 
        with: 
          path: '$GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress'
-     - run: ls -al $GITHUB_WORKSPACE/wordpress/wp-content/plugins
+     - run: ls -al $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
      - name: Install composer and run PhpStan
        run: |
          composer install
