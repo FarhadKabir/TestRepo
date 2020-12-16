@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: echo ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
-     - run: echo ${{ GITHUB_WORKSPACE }}
+     - run: echo {{ env.GITHUB_WORKSPACE }}
      - name: Install wordpress
        run: |
          curl -O https://wordpress.org/latest.tar.gz
