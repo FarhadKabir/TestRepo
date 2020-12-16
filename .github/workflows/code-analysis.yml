@@ -10,7 +10,7 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - run: echo ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+     - run: echo ${{ env.GITHUB_WORKSPACE }}
      - run: echo ${{ env.GITHUB_WORKSPACE }}
      - name: Install wordpress
        run: |
