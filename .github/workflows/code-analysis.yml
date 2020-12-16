@@ -10,8 +10,8 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - run: echo $GITHUB_WORKSPACE/ss
-     - run: echo ${{ env.GITHUB_WORKSPACE }}
+     - run: echo $env:GITHUB_WORKSPACE
+     - run: echo $env:GITHUB_WORKSPACE/ss
      - name: Install wordpress
        run: |
          curl -O https://wordpress.org/latest.tar.gz
