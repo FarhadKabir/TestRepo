@@ -10,7 +10,7 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - run: echo this is $GITHUB_WORKFLOW
+     - run: echo this is $GITHUB_WORKSPACE/sss
      - run: echo $env:GITHUB_WORKSPACE/ss
      - name: Install wordpress
        run: |
