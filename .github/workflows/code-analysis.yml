@@ -27,8 +27,8 @@ jobs:
          rm woocommerce.latest-stable.zip
          pwd
          ls -al
-       working-directory: ~/work/TestRepo/TestRepo/wordpress/wp-content/plugins
-     - run: mkdir /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress
+       working-directory: /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+     - run: mkdir $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
          path: '/home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
