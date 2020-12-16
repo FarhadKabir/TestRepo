@@ -31,8 +31,8 @@ jobs:
      - run: mkdir $GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
-         path: '/home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins/plugin-wordpress'
-     - run: ls -al /home/runner/work/TestRepo/TestRepo/wordpress/wp-content/plugins
+         path: '$GITHUB_WORKSPACE/wordpress/wp-content/plugins/plugin-wordpress'
+     - run: ls -al $GITHUB_WORKSPACE/wordpress/wp-content/plugins
      - name: Install composer and run PhpStan
        run: |
          composer install
