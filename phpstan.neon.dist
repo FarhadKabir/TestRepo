@@ -1,0 +1,14 @@
+parameters:
+    paths:
+        - %currentWorkingDirectory%/
+    excludes_analyse:
+        - %currentWorkingDirectory%/vendor/
+        - %currentWorkingDirectory%/assets/
+        - %currentWorkingDirectory%/tests/
+    scanDirectories:
+        - ../woocommerce/
+        - ../../../wp-includes/
+        - ../../../wp-admin/
+        - ../woocommerce-subscriptions
+    level: 0
+    checkMissingIterableValueType: false
