@@ -1,36 +1,10 @@
 {
-    "name": "altapay/altapay-for-woocommerce",
-    "license": "MIT",
-    "description": "AltaPay: Payments less complicated",
-    "keywords": [
-        "payment",
-        "altapay"
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "archive": {
-        "exclude": [
-            "phpstan.neon.dist",
-            "phpunit.xml.dist"
-        ]
-    },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "altapay/api-php":"^3.0"
-    },
+    "name": "altapay/plugin-prestashop",
+    "description": "Altapay: Payments less complicated",
     "require-dev": {
-        "phpstan/extension-installer": "^1.0",
-        "phpunit/phpunit": "^7.0 || ^8.0",
-        "szepeviktor/phpstan-wordpress": "^0.7.1"
+        "prestashop/php-dev-tools": "^3.11",
+        "phpstan/phpstan": "^0.12"
     },
-    "autoload": {
-        "classmap": ["classes","helpers","assets/blade/lib"]
-    },
-    "autoload-dev": {
-        "classmap": ["tests"]
-    }
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

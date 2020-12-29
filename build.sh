@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
+
 if command -v dpkg-query -l zip
 then
-  mkdir dist
-  zip dist/altapay-for-woocommerce.zip -r * -x "dist/*" "tests/*" "bin/*" build.sh guide.md .gitignore phpunit.xml.dist phpstan.neon.dist composer.json composer.lock @
+  git clone --branch 3.0.1 https://github.com/AltaPay/sdk-php.git
+  cp -rf sdk-php/lib/* lib/altapay/altapay-php-sdk/lib/
+  rm -rf sdk-php/
+  find . -type d -exec cp index.php {} \;
+  mkdir -p dist/altapay
+  rsync -rv --exclude=build.sh --exclude=.gitignore --exclude=guide.md * dist/altapay
+  cd ./dist
+  zip altapay.zip -r altapay
+  rm -r altapay
+  cd ../lib/altapay/altapay-php-sdk/lib/
+  find . \! -name 'helpers.php' -delete
 else
   echo "Zip package is not currently installed"
 fi
