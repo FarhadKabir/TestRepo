@@ -10,22 +10,27 @@ jobs:
   php-stan:
     runs-on: ubuntu-latest
     steps:
-     - name: Install prestashop
+     
+     - name: Install wordpress
        run: |
-         wget https://download.prestashop.com/download/releases/prestashop_1.7.7.0.zip
-         unzip prestashop_1.7.7.0.zip
-         unzip prestashop.zip -d prestashop 
-         rm prestashop.zip prestashop_1.7.7.0.zip
-         pwd
-         ls -al
-     - run: mkdir prestashop/modules/plugin-prestashop
+         curl -O https://wordpress.org/latest.tar.gz
+         tar xzvf latest.tar.gz 
+         rm latest.tar.gz
+     - name: Install woocommerce
+       run: |
+         curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
+         unzip woocommerce.latest-stable.zip 
+         rm woocommerce.latest-stable.zip
+       working-directory: wordpress/wp-content/plugins
+     
+     - run: mkdir wordpress/wp-content/plugins/plugin-wordpress
      - uses: actions/checkout@v2 
        with: 
-         path: prestashop/modules/plugin-prestashop
-     - run: ls -al prestashop/modules/plugin-prestashop
+         path: wordpress/wp-content/plugins/plugin-wordpress
+      
      - name: Install composer and run PhpStan
        run: |
          composer install
-         _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
-       working-directory: prestashop/modules/plugin-prestashop
+         vendor/bin/phpstan analyze
+       working-directory: wordpress/wp-content/plugins/plugin-wordpress
       
