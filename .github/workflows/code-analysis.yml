@@ -17,7 +17,9 @@ jobs:
         unzip prestashop.zip -d prestashop
         rm prestashop.zip prestashop_1.7.7.0.zip
     - run: mkdir prestashop/modules/plugin-prestashop
-        path: prestashop/modules/plugin-prestashop
+    - uses: actions/checkout@v2 
+      with:
+         path: prestashop/modules/plugin-prestashop
     - name: Install composer and run PhpStan
       run: |
         composer install
