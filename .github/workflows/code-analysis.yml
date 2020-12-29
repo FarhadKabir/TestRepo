@@ -27,7 +27,7 @@ jobs:
      - uses: actions/checkout@v2 
        with: 
          path: wordpress/wp-content/plugins/plugin-wordpress
-      
+         php-version: 7.4
      - name: Install composer and run PhpStan
        run: |
          composer install
