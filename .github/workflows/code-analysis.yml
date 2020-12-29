@@ -24,6 +24,10 @@ jobs:
          curl -O https://wordpress.org/latest.tar.gz
          tar xzvf latest.tar.gz 
          rm latest.tar.gz
+     - name: Install woocommerce-subscriptions plugin
+       run: |
+         git clone https://github.com/wp-premium/woocommerce-subscriptions.git
+       working-directory: wordpress/wp-content/plugins
      - name: Install woocommerce
        run: |
          curl -O https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip
