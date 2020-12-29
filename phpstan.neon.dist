@@ -9,9 +9,6 @@ parameters:
         - ../woocommerce/
         - ../../../wp-includes/
         - ../../../wp-admin/
-#        - ../woocommerce-subscriptions
+        - ../woocommerce-subscriptions
     level: 0
     checkMissingIterableValueType: false
-    ignoreErrors:
-        - "#Function wcs_order_contains_renewal not found.#"
-        - "#unknown class WC_Subscriptions_Renewal_Order#"
