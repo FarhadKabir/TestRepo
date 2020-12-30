@@ -9,24 +9,34 @@ on:
 jobs:
   php-stan:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['7.4']
     steps:
-    - name: Install prestashop                              
-      run: |
-        wget https://download.prestashop.com/download/releases/prestashop_1.7.7.0.zip
-        unzip prestashop_1.7.7.0.zip
-        unzip prestashop.zip -d prestashop
-        rm prestashop.zip prestashop_1.7.7.0.zip
-    - run: mkdir prestashop/modules/plugin-prestashop
-    - uses: actions/checkout@v2 
-      with:
-         path: prestashop/modules/plugin-prestashop
-    - name: Install composer and run PhpStan
-      run: |
-        pwd
-        ls -al
-        composer install
-        _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
-      working-directory: prestashop/modules/plugin-prestashop
+     - name: Install PHP 7.4
+       uses: shivammathur/setup-php@v2
+       with:
+         php-version: ${{ matrix.php-versions }}
+         extensions: intl #optional
+         ini-values: "post_max_size=256M" #optional
+         
+     - name: Install prestashop                              
+       run: |
+         wget https://download.prestashop.com/download/releases/prestashop_1.7.7.0.zip
+         unzip prestashop_1.7.7.0.zip
+         unzip prestashop.zip -d prestashop
+         rm prestashop.zip prestashop_1.7.7.0.zip
+     - run: mkdir prestashop/modules/plugin-prestashop
+     - uses: actions/checkout@v2 
+       with:
+          path: prestashop/modules/plugin-prestashop
+     - name: Install composer and run PhpStan
+       run: |
+         pwd
+         ls -al
+         composer install
+         _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
+       working-directory: prestashop/modules/plugin-prestashop
 
-    - name: run PhpCSFixer
-      run: php vendor/bin/php-cs-fixer fix --dry-run --diff
+     - name: run PhpCSFixer
+       run: php vendor/bin/php-cs-fixer fix --dry-run --diff
