@@ -22,6 +22,8 @@ jobs:
          path: prestashop/modules/plugin-prestashop
     - name: Install composer and run PhpStan
       run: |
+        pwd
+        ls -al
         composer install
         _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
         working-directory: prestashop/modules/plugin-prestashop
