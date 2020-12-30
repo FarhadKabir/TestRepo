@@ -41,3 +41,4 @@ jobs:
      - name: run PhpCSFixer
        if: ${{ always() }}
        run: php vendor/bin/php-cs-fixer fix --dry-run --diff
+       working-directory: prestashop/modules/plugin-prestashop
