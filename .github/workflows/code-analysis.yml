@@ -26,19 +26,19 @@ jobs:
          unzip prestashop_1.7.7.0.zip
          unzip prestashop.zip -d prestashop
          rm prestashop.zip prestashop_1.7.7.0.zip
-     - run: mkdir prestashop/modules/plugin-prestashop
+     - run: mkdir prestashop/modules/altapay
      - uses: actions/checkout@v2 
        with:
-          path: prestashop/modules/plugin-prestashop
+          path: prestashop/modules/altapay
      - name: Install composer and run PhpStan
        run: |
          pwd
          ls -al
          composer install
          _PS_ROOT_DIR_=./ php vendor/phpstan/phpstan/phpstan.phar --configuration=phpstan.neon analyse ./
-       working-directory: prestashop/modules/plugin-prestashop
+       working-directory: prestashop/modules/altapay
 
      - name: run PhpCsFixer
        if: ${{ always() }}
        run: php vendor/bin/php-cs-fixer fix --dry-run --diff
-       working-directory: prestashop/modules/plugin-prestashop
+       working-directory: prestashop/modules/altapay
