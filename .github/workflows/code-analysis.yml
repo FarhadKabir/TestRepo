@@ -46,5 +46,5 @@ jobs:
 
      - name: run PhpCsFixer
        if: ${{ always() }}
-       run: php vendor/bin/php-cs-fixer fix --dry-run --diff
+       run: php vendor/bin/php-cs-fixer fix --dry-run
        working-directory: prestashop/modules/altapay
