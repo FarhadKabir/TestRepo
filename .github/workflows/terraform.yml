@@ -79,15 +79,15 @@ jobs:
       run: |
         pwd
         ls -al
-      working-directory: ../
+      working-directory: ../plugin-infrastructure/provision/plugins
     - name: Terraform Init
       run: terraform init
-      working-directory: provision/plugins
+      working-directory: ../plugin-infrastructure/provision/plugins
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       run: terraform fmt -check
-
+      working-directory: ../plugin-infrastructure/provision/plugins
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan
