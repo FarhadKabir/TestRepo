@@ -119,3 +119,4 @@ jobs:
         #vault_password: ${{secrets.VAULT_PASSWORD}}
         options: |
           --extra-vars serverip=52.17.55.224
+          -u ubuntu
