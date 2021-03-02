@@ -79,7 +79,7 @@ jobs:
       run: |
         pwd
         ls -al
-         
+      working-directory: ../../
     - name: Terraform Init
       run: terraform init
       working-directory: provision/plugins
