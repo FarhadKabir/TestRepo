@@ -64,7 +64,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - uses: actions/checkout@v1  
       with:
-        repository: AltaPay/plugin-wordpress
+        repository: AltaPay/plugin-infrastructure
         token: ${{ secrets.ACCESS_TOKEN }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
