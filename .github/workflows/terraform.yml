@@ -111,7 +111,7 @@ jobs:
       uses: dawidd6/action-ansible-playbook@v2
       with:
         playbook: wordpress.yml
-        directory: ../plugin-infrastructure/provision/plugins
+        directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
         inventory: |
           [wordpress]
