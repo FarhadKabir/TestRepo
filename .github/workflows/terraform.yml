@@ -106,3 +106,16 @@ jobs:
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
       working-directory: ../plugin-infrastructure/provision/plugins
+   
+    - name: Run playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: wordpress.yml
+        directory: ../plugin-infrastructure/provision/plugins
+        key: ${{secrets.SSHKEY}}
+        inventory: |
+          [wordpress]
+          52.17.55.224
+        #vault_password: ${{secrets.VAULT_PASSWORD}}
+        options: |
+          --extra-vars serverip=52.17.55.224
