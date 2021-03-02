@@ -113,10 +113,7 @@ jobs:
         playbook: wordpress.yml
         directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
-        inventory: |
-          [wordpress]
-          52.17.55.224
-        #vault_password: ${{secrets.VAULT_PASSWORD}}
         options: |
           --extra-vars serverip=52.17.55.224
           -u ubuntu
+          -i inventory
