@@ -114,6 +114,5 @@ jobs:
         directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
         options: |
-          --extra-vars serverip=52.17.55.224
           -u ubuntu
           -i inventory
