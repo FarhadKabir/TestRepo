@@ -42,13 +42,14 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Terraform'
+name: 'Deployment'
 
+# Only trigger, when the build workflow succeeded
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["PHP Composer"]
+    types:
+      - completed
     
 jobs:
   terraform:
