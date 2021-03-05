@@ -46,10 +46,8 @@ name: 'Deployment'
 
 # Only trigger, when the build workflow succeeded
 on:
-  workflow_run:
-    workflows: ["PHP Composer"]
-    types:
-      - completed
+  push:
+    branches: [ main ]
     
 jobs:
   terraform:
