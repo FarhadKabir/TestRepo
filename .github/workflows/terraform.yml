@@ -74,7 +74,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner      
     - uses: actions/checkout@v1  
       with:
-        repository: AltaPay/plugin-infrastructure
+        repository: FarhadKabir/testprivaterepo
         token: ${{ secrets.GITHUB_TOKEN }}
         ref: 'origin/magento'
 
