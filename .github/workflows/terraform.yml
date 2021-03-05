@@ -75,7 +75,7 @@ jobs:
     - uses: actions/checkout@v1  
       with:
         repository: AltaPay/plugin-infrastructure
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         ref: 'origin/magento'
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
