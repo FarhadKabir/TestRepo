@@ -46,7 +46,7 @@ name: 'Deployment'
 
 # Only trigger, when the build workflow succeeded
 on:
-  push:
+  pull_request:
     branches: [ main ]
     
 jobs:
