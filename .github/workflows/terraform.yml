@@ -72,7 +72,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner      
     - uses: actions/checkout@v1  
       with:
-        repository: FarhadKabir/testprivaterepo
+        repository: AltaPay/plugin-infrastructure
         token: ${{ secrets.ACCESS_TOKEN }}
         ref: 'origin/prestashop'
 
