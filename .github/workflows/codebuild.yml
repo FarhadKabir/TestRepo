@@ -33,3 +33,9 @@ jobs:
       uses: aws-actions/aws-codebuild-run-build@v1.0.3
       with:
         project-name: TestAnsibleEC2Project
+        env-vars-for-codebuild: |
+          branch_name
+      env:
+        branch_name: ${GITHUB_REF##*/}
+      with:
+        project-name: TestAnsibleEC2Project
