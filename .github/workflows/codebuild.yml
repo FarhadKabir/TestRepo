@@ -37,5 +37,3 @@ jobs:
           branch_name
       env:
         branch_name: ${GITHUB_REF##*/}
-      with:
-        project-name: TestAnsibleEC2Project
