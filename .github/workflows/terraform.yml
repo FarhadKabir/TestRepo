@@ -46,8 +46,8 @@ name: 'Deployment'
 
 # Only trigger, when the build workflow succeeded
 on:
-  pull_request:
-    branches: [ sd ]
+  push:
+    branches: [ main ]
     
 jobs:
   terraform:
