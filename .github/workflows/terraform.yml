@@ -94,7 +94,7 @@ jobs:
 
     # Select a terraofrm workspace
     - name: Terraform workspace
-      run: terraform workspace select wordpress
+      run: terraform workspace select opencart
       working-directory: ../plugin-infrastructure/provision/plugins
       
       
@@ -113,7 +113,7 @@ jobs:
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
-        playbook: wordpress.yml
+        playbook: opencart.yml
         directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
         options: |
