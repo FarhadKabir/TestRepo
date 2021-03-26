@@ -74,7 +74,7 @@ jobs:
       with:
         repository: AltaPay/plugin-infrastructure
         token: ${{ secrets.ACCESS_TOKEN }}
-        ref: 'origin/prestashop'
+        ref: 'origin/main'
 
     - name: Echo secrets
       run: |
@@ -94,7 +94,7 @@ jobs:
 
     # Select a terraofrm workspace
     - name: Terraform workspace
-      run: terraform workspace select magento24x
+      run: terraform workspace select wordpress
       working-directory: ../plugin-infrastructure/provision/plugins
       
       
@@ -107,13 +107,13 @@ jobs:
     # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -var ec2_type=t2.medium -auto-approve
+      run: terraform apply -var ec2_type=t2.micro -auto-approve
       working-directory: ../plugin-infrastructure/provision/plugins
    
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
-        playbook: magento2-4-x.yml
+        playbook: wordpress.yml
         directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
         options: |
