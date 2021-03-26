@@ -94,7 +94,7 @@ jobs:
 
     # Select a terraofrm workspace
     - name: Terraform workspace
-      run: terraform workspace select magento22x
+      run: terraform workspace select wordpress
       working-directory: ../plugin-infrastructure/provision/plugins
       
       
@@ -109,11 +109,16 @@ jobs:
       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -var ec2_type=t2.micro -auto-approve
       working-directory: ../plugin-infrastructure/provision/plugins
+      
+    - name: Sleep for 20 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '20s'
    
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
-        playbook: magento2-2-x.yml
+        playbook: wordpress.yml
         directory: ../plugin-infrastructure/deploy/plugins
         key: ${{secrets.SSHKEY}}
         options: |
