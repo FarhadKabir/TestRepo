@@ -124,4 +124,4 @@ jobs:
         options: |
           -u ubuntu
           -i inventory
-          --extra-vars branch_name=${{ github.head_ref }} gatewayURL=${{ secrets.GATEWAYURL }} gatewayUser=${{ secrets.GATEWAYUSER }} gatewayPass=${{ secrets.GATEWAYPASS }}
+          --extra-vars branch_name=main gatewayURL=${{ secrets.GATEWAYURL }} gatewayUser=${{ secrets.GATEWAYUSER }} gatewayPass=${{ secrets.GATEWAYPASS }}
