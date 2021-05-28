@@ -19,4 +19,4 @@ jobs:
         IP: $testvar
         
     - name: Echo env IP
-      run: echo ${{ env.IP}}
+      run: echo ${IP}
