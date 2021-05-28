@@ -17,4 +17,6 @@ jobs:
         echo "IP=$testvar">> $GITHUB_ENV
         
     - name: Echo env IP
-      run: echo $IP
+      run: |
+        echo $IP
+        echo ${{env.IP}}
