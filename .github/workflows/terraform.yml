@@ -3,7 +3,7 @@ name: 'Deployment'
 # Only trigger, when the build workflow succeeded
 on:
   push:
-    branches: [ sd ]
+    branches: [ main ]
     
 jobs:
   terraform:
@@ -80,14 +80,9 @@ jobs:
 
     - name: Export IP
       run: |
-        testvar=$(sed '4!d' inventory)
-        echo $testvar
+        echo "IP=$(sed '4!d' inventory)">> $GITHUB_ENV
+        echo $IP
       working-directory: ../plugin-infrastructure/deploy/plugins
-      env:
-        IP: $testvar
-        
-    - name: Echo env IP
-      run: echo ${{ env.IP}}
         
     # Run Cypress tests   
     - uses: actions/checkout@v1
@@ -101,7 +96,7 @@ jobs:
       uses: jsdaniell/create-json@1.1.2
       with:
         name: "config.json"
-        json: '{"url": "http://${{ env.IP}}/wordpress","adminURL": "http://${{ env.IP}}/wordpress/wp-admin","adminUsername": ${{secrets.SHOP_ADMIN_USERNAME}},"adminPass": ${{secrets.SHOP_ADMIN_PASS}}}'
+        json: '{"url": "http://$IP/wordpress","adminURL": "http://$IP/wordpress/wp-admin","adminUsername": ${{secrets.SHOP_ADMIN_USERNAME}},"adminPass": ${{secrets.SHOP_ADMIN_PASS}}}'
         dir: Test/Integration test/cypress/fixtures/
         
     - name: Cat File Contents
