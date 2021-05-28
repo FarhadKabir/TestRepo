@@ -13,7 +13,8 @@ jobs:
     
     - name: Export IP
       run: |
-        echo "IP=23.4242.232.22">> $GITHUB_ENV
+        testvar="23.4242.232.22"
+        echo "IP=$testvar">> $GITHUB_ENV
         
     - name: Echo env IP
       run: echo $IP
