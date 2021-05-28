@@ -83,6 +83,11 @@ jobs:
         testvar=$(sed '4!d' inventory)
         echo $testvar
       working-directory: ../plugin-infrastructure/deploy/plugins
+      env:
+        IP: $testvar
+        
+    - name: Echo env IP
+      run: echo ${{ env.IP}}
         
     # Run Cypress tests   
     - uses: actions/checkout@v1
@@ -90,14 +95,13 @@ jobs:
         repository: AltaPay/plugin-wordpress
         ref: 'origin/main'
         path: TestRepo
-        
-        
+             
     - name: Create json
       id: create-json-2  # Second ID
       uses: jsdaniell/create-json@1.1.2
       with:
         name: "config.json"
-        json: '{"url": "http://$testvar/wordpress","adminURL": "http://$testvar/wordpress/wp-admin","adminUsername": ${{secrets.SHOP_ADMIN_USERNAME}},"adminPass": ${{secrets.SHOP_ADMIN_PASS}}}'
+        json: '{"url": "http://${{ env.IP}}/wordpress","adminURL": "http://${{ env.IP}}/wordpress/wp-admin","adminUsername": ${{secrets.SHOP_ADMIN_USERNAME}},"adminPass": ${{secrets.SHOP_ADMIN_PASS}}}'
         dir: Test/Integration test/cypress/fixtures/
         
     - name: Cat File Contents
