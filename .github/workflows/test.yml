@@ -1,0 +1,22 @@
+name: 'Test Env Var'
+
+# Only trigger, when the build workflow succeeded
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  test:
+    name: Test security
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Export IP
+      run: |
+        testvar="23.433.223.33"
+        echo $testvar
+      env:
+        IP: $testvar
+        
+    - name: Echo env IP
+      run: echo ${{ env.IP}}
