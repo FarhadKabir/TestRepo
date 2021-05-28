@@ -16,7 +16,7 @@ jobs:
         testvar="23.433.223.33"
         echo $testvar
       env:
-        IP: $testvar
+        IP: "23.433.223.33"
         
     - name: Echo env IP
       run: echo ${IP}
